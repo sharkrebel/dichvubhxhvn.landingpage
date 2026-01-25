@@ -39,3 +39,4 @@ Build ở dưới máy tính (npm run build), sau đó nén folder .next, public
 
 npm install --omit=dev
 npm start
+node .next/standalone/server.js

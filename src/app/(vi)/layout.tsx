@@ -53,9 +53,17 @@ export const metadata: Metadata = {
         locale: "vi_VN",
         url: "https://dichvubhxh.vn",
         siteName: "DichVuBHXH.vn",
-        title: "DichVuBHXH.vn - Dịch vụ Tư vấn BHXH Trọn Gói",
+        title: "Dịch vụ BHXH Online Trọn Gói - Uy Tín & Chuyên Nghiệp",
         description:
-            "Chuyên xử lý hồ sơ rút BHXH 1 lần, gộp sổ, BHYT tự nguyện. 15+ năm kinh nghiệm.",
+            "Chuyên xử lý hồ sơ rút BHXH 1 lần, gộp sổ, BHYT tự nguyện. 15+ năm kinh nghiệm, tư vấn đúng luật mới nhất 2025.",
+        images: [
+            {
+                url: "https://dichvubhxh.vn/og-image-static.png",
+                width: 1200,
+                height: 630,
+                alt: "DichVuBHXH.vn Open Graph Image",
+            },
+        ],
     },
     robots: {
         index: true,
@@ -69,6 +77,8 @@ export const metadata: Metadata = {
         },
     },
 };
+
+import TechBackground from "@/components/TechBackground";
 
 export default function ViLayout({
     children,
@@ -84,11 +94,12 @@ export default function ViLayout({
                     href="https://fonts.gstatic.com"
                     crossOrigin="anonymous"
                 />
-                <link rel="dns-prefetch" href="https://congdichvubhxh.vn" />
                 <link rel="dns-prefetch" href="https://muabhyt.vn" />
+                <link rel="dns-prefetch" href="https://congdichvubhxh.vn" />
                 <JsonLd data={organizationSchema} />
             </head>
             <body className="antialiased min-h-screen flex flex-col">
+                <TechBackground />
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-HREH0CV347"
                     strategy="afterInteractive"

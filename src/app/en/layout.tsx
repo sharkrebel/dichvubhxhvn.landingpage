@@ -55,6 +55,14 @@ export const metadata: Metadata = {
         title: "DichVuBHXH.vn - Full-service Social Insurance Consulting",
         description:
             "Handling One-time Social Insurance withdrawal, Book merging, Voluntary Health Insurance. 15+ years experience.",
+        images: [
+            {
+                url: "https://dichvubhxh.vn/og-image-static.png",
+                width: 1200,
+                height: 630,
+                alt: "DichVuBHXH.vn Open Graph Image",
+            },
+        ],
     },
     robots: {
         index: true,
@@ -68,6 +76,8 @@ export const metadata: Metadata = {
         },
     },
 };
+
+import TechBackground from "@/components/TechBackground";
 
 export default function EnLayout({
     children,
@@ -86,6 +96,7 @@ export default function EnLayout({
                 <JsonLd data={organizationSchemaEn} />
             </head>
             <body className="antialiased min-h-screen flex flex-col">
+                <TechBackground />
                 {/* Same GA4 tracking */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-HREH0CV347"

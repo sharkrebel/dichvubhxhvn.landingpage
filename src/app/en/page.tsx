@@ -97,8 +97,7 @@ export default function HomePageEn() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--background)] via-white to-blue-50 dark:from-[#101922] dark:via-[#0d141b] dark:to-[#1e293b]">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+      <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 pb-20 lg:pt-12 lg:pb-32">
           {/* ServiceRotator reused */}
           <ServiceRotator />
@@ -156,7 +155,7 @@ export default function HomePageEn() {
       </section>
 
       {/* Intro Video & Features Section */}
-      <section className="py-12 bg-white dark:bg-[#0d141b]">
+      <section className="py-12 bg-white/80 dark:bg-[#0d141b]/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-2 h-full flex flex-col justify-center">
@@ -208,7 +207,7 @@ export default function HomePageEn() {
       </section>
 
       {/* Experience Preview Section */}
-      <section className="py-12 bg-white dark:bg-[#0d141b] border-b border-[var(--border)]">
+      <section className="py-12 bg-white/80 dark:bg-[#0d141b]/80 backdrop-blur-sm border-b border-[var(--border)]">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
             <div>
@@ -260,7 +259,7 @@ export default function HomePageEn() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 lg:py-32 bg-white dark:bg-[#0d141b]">
+      <section className="py-20 lg:py-32 bg-white/80 dark:bg-[#0d141b]/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-black tracking-tight mb-4">
@@ -332,7 +331,7 @@ export default function HomePageEn() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 bg-white dark:bg-[#0d141b]">
+      <section className="py-20 lg:py-32 bg-white/80 dark:bg-[#0d141b]/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-black tracking-tight mb-6">
             Need Support with SI?

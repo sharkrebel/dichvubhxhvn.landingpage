@@ -37,7 +37,7 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
   /* Prevent content shift */
@@ -147,10 +147,19 @@ body {
 nav {
   min-height: 64px;
   contain: layout style;
+  position: relative;
+  z-index: 50;
+}
+
+main {
+  position: relative;
+  z-index: 10;
 }
 
 footer {
   contain: layout style;
+  position: relative;
+  z-index: 50;
 }
 
 /* Skeleton loading animation */

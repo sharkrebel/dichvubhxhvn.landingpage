@@ -62,8 +62,8 @@ export default function Navbar() {
                                 <Link
                                     href={item.href}
                                     className={`px-4 py-2 text-sm font-bold transition-colors rounded-lg flex items-center gap-1 ${pathname === item.href || (item.submenu && item.submenu.some(sub => sub.href === pathname))
-                                            ? "text-[var(--primary)] bg-[var(--primary)]/10"
-                                            : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
+                                        ? "text-[var(--primary)] bg-[var(--primary)]/10"
+                                        : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
                                         }`}
                                 >
                                     {item.name}
@@ -92,8 +92,8 @@ export default function Navbar() {
                                                 key={subItem.name}
                                                 href={subItem.href}
                                                 className={`block px-4 py-2.5 text-sm transition-colors ${pathname === subItem.href
-                                                        ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
-                                                        : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                                    ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
+                                                    : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
                                                     }`}
                                             >
                                                 {subItem.name}
@@ -128,7 +128,7 @@ export default function Navbar() {
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            Hotline EN: 0973 358 077
+                            Hotline: 0973 358 077
                         </a>
                     </div>
 

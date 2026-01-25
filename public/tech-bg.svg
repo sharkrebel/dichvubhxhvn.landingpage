@@ -1,0 +1,42 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="tech-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <!-- STATIC LAYER -->
+      <!-- Honeycomb grid -->
+      <path d="M50 0 L100 25 L100 75 L50 100 L0 75 L0 25 Z" fill="none" stroke="#2b8cee" stroke-width="0.5" opacity="0.08"/>
+      
+      <!-- Nodes -->
+      <circle cx="50" cy="0" r="1.5" fill="#2b8cee" opacity="0.15"/>
+      <circle cx="100" cy="25" r="1.5" fill="#2b8cee" opacity="0.15"/>
+      <circle cx="100" cy="75" r="1.5" fill="#2b8cee" opacity="0.15"/>
+      <circle cx="50" cy="100" r="1.5" fill="#2b8cee" opacity="0.15"/>
+      
+      <!-- Lines -->
+      <path d="M50 0 L100 75" stroke="#2b8cee" stroke-width="0.3" opacity="0.05"/>
+      <path d="M50 0 L0 75" stroke="#2b8cee" stroke-width="0.3" opacity="0.05"/>
+      
+      <!-- ANIMATED PARTICLES LAYER -->
+      <!-- Floating particle 1 -->
+      <circle r="1" fill="#2b8cee" opacity="0.4">
+        <animate attributeName="cx" values="20;80;20" dur="20s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="20;80;20" dur="23s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Floating particle 2 -->
+      <circle r="1" fill="#f97316" opacity="0.3">
+        <animate attributeName="cx" values="80;30;80" dur="25s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="70;20;70" dur="28s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Pulse Node -->
+      <circle cx="50" cy="50" r="2" fill="#2b8cee" opacity="0.1">
+         <animate attributeName="r" values="1;3;1" dur="3s" repeatCount="indefinite" />
+         <animate attributeName="opacity" values="0.1;0.3;0.1" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </pattern>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#tech-pattern)" />
+</svg>
