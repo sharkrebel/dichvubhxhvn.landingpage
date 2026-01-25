@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Service SPA - Variant 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 transition-colors duration-300">
+<!-- Sticky Navigation Bar -->
+<nav class="sticky top-0 z-50 w-full border-b border-solid border-[#e7edf3] dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">ServicePro</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Portfolio</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
+                    Get Started
+                </button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-white transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-xl">dark_mode</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1280px] mx-auto px-4 lg:px-10">
+<!-- Hero Section -->
+<section class="py-12 lg:py-20">
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="flex flex-col gap-6 lg:w-1/2">
+<div class="flex flex-col gap-4">
+<h1 class="text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+                            Elevate Your Business with <span class="text-primary">Expert Solutions</span>
+</h1>
+<p class="text-base lg:text-lg text-[#4c739a] dark:text-slate-400 max-w-xl">
+                            We provide high-impact consulting, design, and marketing strategies to scale your brand. Our data-driven approach ensures your business stays ahead of the curve.
+                        </p>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all">
+                            Start Today
+                        </button>
+<button class="bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            View Case Studies
+                        </button>
+</div>
+</div>
+<div class="w-full lg:w-1/2 bg-center bg-no-repeat aspect-video bg-cover rounded-xl shadow-2xl overflow-hidden border-4 border-white dark:border-slate-800" data-alt="Professional office environment with team collaborating" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPOeZ_D8Q1XVNN-kCZkVJtEKzqBX2Jf476yi9IaWZrI9HFlwifztjAu3x5GWTygojnaYlOMj9hOUSQcRXpwo14cTHQJuS5LPV2Ap5L8VL-sZICGVU4VtuK46c53RFfmlFacfMCHAJZ4L4HYP8Jmmvdn2AzL7UkE_jbTFUWIUJbsy3z0Vs9sCXys-4fjU1JHDRxTjcqhhThcHp0beT9KScIA_yrVQNJeb5Joi66n0R1pW2eZYnUFOSBOLO9R_tZIVZGIJ7wWLNFVY0z");'>
+</div>
+</div>
+</section>
+<!-- Banner with 80% Video and 20% Sidebar -->
+<section class="py-10">
+<div class="flex flex-col lg:flex-row gap-6 bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-[#e7edf3] dark:border-slate-800">
+<!-- Video Section (80%) -->
+<div class="w-full lg:w-[80%]">
+<div class="relative flex items-center justify-center bg-slate-200 dark:bg-slate-800 bg-cover bg-center aspect-video rounded-xl overflow-hidden group" data-alt="Cinematic intro video showing digital transformation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAOa9ZaIp6vyPK0KdNyHV-Qb5rtgGQKDyY4D7uLYwZ25Y4Q5Prrxa0JYSlCDyGhm5HZ_6yT3H1PGulw2a2om4YhXA6jsQNSyabBPSxuxtP7OZPM_TkW8bIhjeygyjUwzywXhItMr0rysN3qI4bqBPAT3LCqPDxwaHTdIwwdcHiGTA1JnfTsZ83BzZBXJN-tMC6vaAt181Z3OWIzulcxkOQNDqkwpBs22i4qxqrIVIYUn_xtoHONpglOEGCSqTYLvzhV299aDinTz8o");'>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all"></div>
+<button class="relative z-10 flex shrink-0 items-center justify-center rounded-full size-20 bg-primary text-white shadow-xl hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl fill-current">play_arrow</span>
+</button>
+<div class="absolute inset-x-0 bottom-0 px-6 py-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex h-1 items-center justify-center mb-3">
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="relative"><div class="absolute -left-2 -top-1.5 size-4 rounded-full bg-white shadow-md"></div></div>
+<div class="h-1 flex-1 rounded-full bg-white/30"></div>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-medium">0:45</p>
+<p class="text-white text-xs font-medium">3:12</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Menu Section (20%) -->
+<div class="w-full lg:w-[20%] flex flex-col justify-center">
+<div class="flex flex-col gap-6 p-2">
+<div class="flex flex-col">
+<h3 class="text-lg font-bold leading-tight">Our Core</h3>
+<p class="text-[#4c739a] text-xs font-normal">Expertise categories</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all group" href="#consulting">
+<span class="material-symbols-outlined">business_center</span>
+<p class="text-sm font-bold">Consulting</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-[#4c739a] dark:text-slate-400" href="#design">
+<span class="material-symbols-outlined">palette</span>
+<p class="text-sm font-medium">Design</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-[#4c739a] dark:text-slate-400" href="#marketing">
+<span class="material-symbols-outlined">campaign</span>
+<p class="text-sm font-medium">Marketing</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Detail Sections (Alternating) -->
+<section class="py-20 space-y-24">
+<!-- SectionHeader -->
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="text-3xl lg:text-4xl font-black tracking-tight mb-4">Depth of Expertise</h2>
+<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+</div>
+<!-- Detail 1: Consulting -->
+<div class="flex flex-col lg:flex-row gap-12 items-center" id="consulting">
+<div class="lg:w-1/2 order-2 lg:order-1">
+<div class="flex flex-col gap-6">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="text-3xl font-bold">Strategic Business Consulting</h3>
+<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed">
+                            We analyze your business infrastructure from the ground up, identifying bottlenecks and growth opportunities. Our consultants bring decades of experience in scaling startups and optimizing enterprise workflows.
+                        </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Market Analysis &amp; Positioning
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Operational Efficiency Audits
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Financial Forecasting
+                            </li>
+</ul>
+</div>
+</div>
+<div class="lg:w-1/2 order-1 lg:order-2">
+<div class="aspect-video rounded-2xl overflow-hidden shadow-lg border border-[#e7edf3] dark:border-slate-800" data-alt="Data dashboard showing business growth metrics" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNlsOq4_7I1vWmU05hWzgLNxyeo1UusdqLdsahJzcym21_o_kcZaME60N57e0gKXj1NguzvWUKUN8cRQ_bW0pIJr-0UoS0OU-CGpdRazcI4HGF35ZHIB7P-myGHiOTmtFg3bCpGkaNABI1__fc8igMrLke1EQQwCWhOAItEpszTX1RIsc5XplFdR348C7Xud8LZXoYyNXB5-4GH-Z_wwuvVe-YrXuWri2K4InXeWyVRicInwGNkibzZRAEFYVlr26QvJiTpa7kvosz"); background-size: cover;'>
+</div>
+</div>
+</div>
+<!-- Detail 2: Design -->
+<div class="flex flex-col lg:flex-row gap-12 items-center" id="design">
+<div class="lg:w-1/2">
+<div class="aspect-video rounded-2xl overflow-hidden shadow-lg border border-[#e7edf3] dark:border-slate-800" data-alt="Clean and modern mobile app UI design" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDe-Aop2NUstLDHTqlWkfPJfYXwWqIr6Ot9TTssTMWAAvk46o_ODA8fpcnKgu4gFmQQrfHnyu_XI9AztCmx6qdd3ELtQJNfYgjbpvDbJ0RHJHIVtejdPjVDOgZQWHW7wUQaKOSGYoTBT_TeO5U9aGueTkgw-VTQdGVNt9CS0Tnqloq0HtWPuq7UApMdbyoY2JQBrMSTpajZo697xrIBwFY-fvtP5Eu3NRdXo5_AmK0uIiCMnCEJuMPmdRyC5pBWhG6qkJUO81s0atyP"); background-size: cover;'>
+</div>
+</div>
+<div class="lg:w-1/2">
+<div class="flex flex-col gap-6">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<h3 class="text-3xl font-bold">User-Centric UI/UX Design</h3>
+<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed">
+                            Design is not just how it looks; it's how it works. Our design team focuses on creating intuitive, friction-free experiences that delight users and drive conversion.
+                        </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Modern Brand Identity
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Interactive Prototyping
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> User Research &amp; Testing
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Detail 3: Marketing -->
+<div class="flex flex-col lg:flex-row gap-12 items-center" id="marketing">
+<div class="lg:w-1/2 order-2 lg:order-1">
+<div class="flex flex-col gap-6">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<h3 class="text-3xl font-bold">Performance Marketing</h3>
+<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed">
+                            Don't just reach people—engage them. Our marketing strategies are built on data and psychology, ensuring your brand message hits the right audience at the perfect time.
+                        </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Search Engine Optimization
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Social Ads Management
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Content Strategy
+                            </li>
+</ul>
+</div>
+</div>
+<div class="lg:w-1/2 order-1 lg:order-2">
+<div class="aspect-video rounded-2xl overflow-hidden shadow-lg border border-[#e7edf3] dark:border-slate-800" data-alt="Digital marketing analytics on a laptop screen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtzngftigBqKcUAUCCEm4N7tqM4M0jzT2U4F50LLB6GMNEoWqFjDWADdqIFcPUi3QwcVoMa3NiQi9E7Bp6RFc6oHs24MNAn-m9lJYTIzmFOgV5Q6zqiNgHrR9ARwv92LpmuUo-WChyik7AnPFXvtZj80-n7GGvQR5hxDCeG0s_xdfr9fAniN76rFTSB4L-6uLC6whL2h9LoKKDAQX3NFCrQLwoNHkltCkkTeyPJkUR4Z7pYC5eZH1DUKPtvhn1Be7f0CmUb7EY0aKY"); background-size: cover;'>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-[#e7edf3] dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<!-- Column 1: Brand -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<h2 class="text-lg font-bold">ServicePro</h2>
+</div>
+<p class="text-sm text-[#4c739a] dark:text-slate-400 leading-relaxed">
+                        Helping modern businesses navigate the digital landscape with precision and creativity. Elevate your brand today.
+                    </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">language</span>
+</a>
+</div>
+</div>
+<!-- Column 2: Quick Links -->
+<div class="flex flex-col gap-6">
+<h3 class="text-sm font-bold uppercase tracking-wider">Quick Links</h3>
+<ul class="flex flex-col gap-3">
+<li><a class="text-sm text-[#4c739a] dark:text-slate-400 hover:text-primary" href="#">Services</a></li>
+<li><a class="text-sm text-[#4c739a] dark:text-slate-400 hover:text-primary" href="#">Our Process</a></li>
+<li><a class="text-sm text-[#4c739a] dark:text-slate-400 hover:text-primary" href="#">Testimonials</a></li>
+<li><a class="text-sm text-[#4c739a] dark:text-slate-400 hover:text-primary" href="#">FAQs</a></li>
+</ul>
+</div>
+<!-- Column 3: Contact Info -->
+<div class="flex flex-col gap-6">
+<h3 class="text-sm font-bold uppercase tracking-wider">Contact Us</h3>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3 text-sm text-[#4c739a] dark:text-slate-400">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>123 Innovation Drive,<br/>Silicon Valley, CA 94025</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-[#4c739a] dark:text-slate-400">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>+1 (555) 000-1234</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-[#4c739a] dark:text-slate-400">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span>hello@servicepro.com</span>
+</li>
+</ul>
+</div>
+<!-- Column 4: Newsletter -->
+<div class="flex flex-col gap-6">
+<h3 class="text-sm font-bold uppercase tracking-wider">Stay Updated</h3>
+<p class="text-sm text-[#4c739a] dark:text-slate-400">Subscribe for insights and updates.</p>
+<div class="flex flex-col gap-2">
+<input class="w-full h-10 px-4 rounded-lg bg-slate-50 dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your email" type="email"/>
+<button class="bg-primary text-white h-10 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-[#e7edf3] dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-xs text-[#4c739a] dark:text-slate-400">© 2023 ServicePro Solutions Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-[#4c739a] dark:text-slate-400 hover:underline" href="#">Privacy Policy</a>
+<a class="text-xs text-[#4c739a] dark:text-slate-400 hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
