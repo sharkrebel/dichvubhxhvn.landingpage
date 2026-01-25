@@ -18,13 +18,13 @@ export default function CTAButton({
     external = true,
 }: CTAButtonProps) {
     const baseStyles =
-        "inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300";
+        "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300";
 
     const variants = {
         primary:
-            "gradient-action text-white shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-[1.02]",
+            "gradient-action text-white shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-[1.02]",
         secondary:
-            "bg-white text-[var(--foreground)] border-2 border-[var(--border)] hover:border-[var(--primary)] hover:text-[var(--primary)]",
+            "bg-white dark:bg-white/5 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-white/20 hover:border-[var(--primary)] hover:text-[var(--primary)] dark:hover:bg-white/10",
         outline:
             "bg-transparent text-[var(--primary)] border-2 border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white",
     };

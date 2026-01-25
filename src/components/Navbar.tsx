@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const menuItems = [
     { name: "Trang chủ", href: "/" },
@@ -23,32 +25,26 @@ const menuItems = [
 ];
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     return (
-        <nav className="sticky top-0 z-50 w-full border-b border-[var(--border)] glassmorphism">
+        <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-[var(--border)] bg-white/95 dark:bg-[#101922]/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all">
             <div className="max-w-7xl mx-auto px-4 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center">
-                            <svg
-                                className="w-6 h-6 text-white"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                                />
-                            </svg>
-                        </div>
-                        <span className="text-xl font-bold text-[var(--primary)]">
-                            DichVuBHXH.vn
+                    <Link href="/" className="flex items-center gap-3">
+                        {/* <div className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center">
+                            <svg ... />
+                        </div> */}
+                        <img
+                            src="/logo_dichvubhxh.png"
+                            alt="DichVuBHXH.vn Logo"
+                            className="h-10 w-auto object-contain"
+                        />
+                        <span className="text-xl font-bold text-[var(--primary)] hidden sm:block">
+                            Dịch vụ BHXH
                         </span>
                     </Link>
 
@@ -65,12 +61,15 @@ export default function Navbar() {
                             >
                                 <Link
                                     href={item.href}
-                                    className="px-4 py-2 text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors rounded-lg hover:bg-[var(--primary)]/5"
+                                    className={`px-4 py-2 text-sm font-bold transition-colors rounded-lg flex items-center gap-1 ${pathname === item.href || (item.submenu && item.submenu.some(sub => sub.href === pathname))
+                                            ? "text-[var(--primary)] bg-[var(--primary)]/10"
+                                            : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
+                                        }`}
                                 >
                                     {item.name}
                                     {item.submenu && (
                                         <svg
-                                            className="w-4 h-4 ml-1 inline-block"
+                                            className="w-4 h-4"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -78,7 +77,7 @@ export default function Navbar() {
                                             <path
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
-                                                strokeWidth={2}
+                                                strokeWidth={1.5}
                                                 d="M19 9l-7 7-7-7"
                                             />
                                         </svg>
@@ -87,12 +86,15 @@ export default function Navbar() {
 
                                 {/* Dropdown */}
                                 {item.submenu && activeDropdown === item.name && (
-                                    <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-[var(--border)] py-2 z-50">
+                                    <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-[var(--border)] py-2 z-50 animate-enter origin-top-left">
                                         {item.submenu.map((subItem) => (
                                             <Link
                                                 key={subItem.name}
                                                 href={subItem.href}
-                                                className="block px-4 py-2.5 text-sm text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors"
+                                                className={`block px-4 py-2.5 text-sm transition-colors ${pathname === subItem.href
+                                                        ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
+                                                        : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                                    }`}
                                             >
                                                 {subItem.name}
                                             </Link>
@@ -104,10 +106,10 @@ export default function Navbar() {
 
                         {/* External Link - Công cụ online */}
                         <a
-                            href="https://muabhyt.vn"
+                            href="https://muabhyt.vn/tinh-bhxh-1-lan"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors rounded-lg hover:bg-[var(--primary)]/5 flex items-center gap-1"
+                            className="px-4 py-2 text-sm font-bold text-[#0f172a] dark:text-white hover:text-[var(--primary)] transition-colors rounded-lg hover:bg-[var(--primary)]/5 flex items-center gap-1"
                         >
                             Công cụ online
                             <svg
@@ -119,21 +121,24 @@ export default function Navbar() {
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeWidth={2}
+                                    strokeWidth={1.5}
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                                 />
                             </svg>
                         </a>
                     </div>
 
-                    {/* CTA Button + Theme Toggle */}
                     <div className="hidden lg:flex items-center gap-3">
+                        <LanguageSwitcher />
                         <ThemeToggle />
                         <a
-                            href="https://congdichvubhxh.vn/contact/"
-                            className="px-6 py-2.5 text-sm font-bold text-white rounded-xl gradient-action hover:opacity-90 transition-opacity shadow-lg shadow-orange-500/25"
+                            href="tel:0973358077"
+                            className="flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-white rounded-xl gradient-action hover:opacity-90 transition-opacity shadow-lg shadow-orange-500/25"
                         >
-                            Tư vấn miễn phí
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            0973 358 077
                         </a>
                     </div>
 
@@ -153,14 +158,14 @@ export default function Navbar() {
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeWidth={2}
+                                    strokeWidth={1.5}
                                     d="M6 18L18 6M6 6l12 12"
                                 />
                             ) : (
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeWidth={2}
+                                    strokeWidth={1.5}
                                     d="M4 6h16M4 12h16M4 18h16"
                                 />
                             )}
@@ -171,14 +176,14 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="lg:hidden border-t border-[var(--border)] bg-white dark:bg-[#101922]">
+                <div className="lg:hidden border-t border-[var(--border)] bg-white dark:bg-[#101922] animate-enter origin-top">
                     <div className="px-4 py-4 space-y-1">
                         {menuItems.map((item) => (
                             <div key={item.name}>
                                 <Link
                                     href={item.href}
                                     onClick={() => !item.submenu && setIsOpen(false)}
-                                    className="block px-4 py-3 text-base font-medium text-[var(--foreground)] hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
+                                    className="block px-4 py-3 text-base font-medium text-[#0f172a] dark:text-white hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
                                 >
                                     {item.name}
                                 </Link>
@@ -201,7 +206,7 @@ export default function Navbar() {
 
                         {/* External Link Mobile */}
                         <a
-                            href="https://muabhyt.vn"
+                            href="https://muabhyt.vn/tinh-bhxh-1-lan"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-3 text-base font-medium text-[var(--foreground)] hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
@@ -216,7 +221,7 @@ export default function Navbar() {
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeWidth={2}
+                                    strokeWidth={1.5}
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                                 />
                             </svg>
@@ -225,11 +230,23 @@ export default function Navbar() {
                         {/* CTA Mobile */}
                         <div className="pt-4">
                             <a
-                                href="https://congdichvubhxh.vn/contact/"
-                                className="block w-full px-6 py-3 text-center text-base font-bold text-white rounded-xl gradient-action shadow-lg"
+                                href="tel:0973358077"
+                                className="flex items-center justify-center gap-2 w-full px-6 py-3 text-center text-base font-bold text-white rounded-xl gradient-action shadow-lg"
                             >
-                                Tư vấn miễn phí
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                                0973 358 077
                             </a>
+                        </div>
+
+                        {/* Theme & Language Mobile */}
+                        <div className="flex items-center justify-between pt-4 border-t border-[var(--border)] mt-4">
+                            <span className="text-sm font-medium text-[var(--text-secondary)]">Giao diện & Ngôn ngữ</span>
+                            <div className="flex items-center gap-3">
+                                <LanguageSwitcher />
+                                <ThemeToggle />
+                            </div>
                         </div>
                     </div>
                 </div>
