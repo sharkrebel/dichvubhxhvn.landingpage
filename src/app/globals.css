@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f6f7f8;
   --foreground: #0d141b;
@@ -7,8 +10,10 @@
   --primary-dark: #1e6fc7;
   --action: #f97316;
   --action-dark: #ea580c;
-  --text-secondary: #4c739a;
-  --border: #e7edf3;
+  --text-secondary: #334155;
+  /* slate-300 - slightly darker border */
+  --border: #cbd5e1;
+  --ease-spring: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 @theme inline {
@@ -23,16 +28,7 @@
   --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #101922;
-    --foreground: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --border: #1e293b;
-  }
-}
-
-/* Dark mode class-based */
+/* Dark mode class-based only - no media query to avoid OS override */
 .dark {
   --background: #101922;
   --foreground: #f1f5f9;
@@ -71,13 +67,41 @@ body {
 
 /* Custom utilities */
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  /* Slightly more transparent */
+  backdrop-filter: blur(20px);
+  /* Increased blur */
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* Subtle border */
 }
 
 .dark .glassmorphism {
-  background: rgba(16, 25, 34, 0.9);
+  background: rgba(16, 25, 34, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Spring Transition Utility */
+.transition-spring {
+  transition-timing-function: var(--ease-spring);
+  transition-duration: 0.5s;
+}
+
+/* Entry Animation */
+@keyframes enter-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: enter-up 0.6s var(--ease-spring) forwards;
 }
 
 /* Gradient backgrounds */
@@ -196,3 +220,5 @@ footer {
     display: none !important;
   }
 }
+
+/* Google Translate Customization - Removed */

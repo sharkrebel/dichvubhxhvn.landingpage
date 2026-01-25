@@ -3,68 +3,46 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://dichvubhxh.vn";
 
-    const routes = [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: "weekly" as const,
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/dich-vu`,
-            lastModified: new Date(),
-            changeFrequency: "weekly" as const,
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/dich-vu/rut-bhxh-1-lan`,
-            lastModified: new Date(),
-            changeFrequency: "weekly" as const,
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/dich-vu/nguoi-nuoc-ngoai`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/dich-vu/hoan-thien-ho-so`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/dich-vu/bhyt-tu-nguyen`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/dich-vu/bhxh-tu-nguyen`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/quy-trinh`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/bieu-phi`,
-            lastModified: new Date(),
-            changeFrequency: "monthly" as const,
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/kinh-nghiem`,
-            lastModified: new Date(),
-            changeFrequency: "weekly" as const,
-            priority: 0.7,
-        },
+    const localRoutes = [
+        "",
+        "/dich-vu",
+        "/dich-vu/rut-bhxh-1-lan",
+        "/dich-vu/nguoi-nuoc-ngoai",
+        "/dich-vu/hoan-thien-ho-so",
+        "/dich-vu/bhyt-tu-nguyen",
+        "/dich-vu/bhxh-tu-nguyen",
+        "/quy-trinh",
+        "/bieu-phi",
+        "/kinh-nghiem",
     ];
 
-    return routes;
+    const enRoutes = [
+        "/en",
+        "/en/services",
+        "/en/services/one-time-withdrawal",
+        "/en/services/foreigner",
+        "/en/services/profile-completion",
+        "/en/services/voluntary-health-insurance",
+        "/en/services/voluntary-social-insurance",
+        "/en/process",
+        "/en/pricing",
+        "/en/experience",
+    ];
+
+    const allRoutes = [
+        ...localRoutes.map((route) => ({
+            url: `${baseUrl}${route}`,
+            lastModified: new Date(),
+            changeFrequency: "weekly" as const,
+            priority: route === "" ? 1 : 0.8,
+        })),
+        ...enRoutes.map((route) => ({
+            url: `${baseUrl}${route}`,
+            lastModified: new Date(),
+            changeFrequency: "weekly" as const,
+            priority: route === "/en" ? 0.9 : 0.7,
+        })),
+    ];
+
+    return allRoutes;
 }

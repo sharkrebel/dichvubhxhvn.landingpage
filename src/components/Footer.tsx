@@ -6,11 +6,26 @@ const quickLinks = [
     { name: "Quy trình", href: "/quy-trinh" },
     { name: "Biểu phí", href: "/bieu-phi" },
     { name: "Kinh nghiệm", href: "/kinh-nghiem" },
+    {
+        name: "Tính BHXH 1 lần 2026",
+        href: "https://muabhyt.vn/tinh-bhxh-1-lan",
+        external: true
+    },
+    {
+        name: "Tính Lương hưu dự kiến",
+        href: "https://muabhyt.vn/du-kien-luong-huu",
+        external: true
+    },
 ];
 
 const services = [
     { name: "Rút BHXH 1 lần", href: "/dich-vu/rut-bhxh-1-lan" },
-    { name: "Hoàn thiện hồ sơ", href: "/dich-vu/hoan-thien-ho-so" },
+    { name: "Hồ sơ người nước ngoài", href: "/dich-vu/nguoi-nuoc-ngoai" },
+    { name: "Gộp sổ - Chốt sổ BHXH", href: "/dich-vu/hoan-thien-ho-so" },
+    { name: "Cấp lại sổ BHXH bị mất", href: "/dich-vu/hoan-thien-ho-so" },
+    { name: "Điều chỉnh thông tin", href: "/dich-vu/hoan-thien-ho-so" },
+    { name: "Chế độ Thai sản", href: "/dich-vu/bhxh-tu-nguyen" },
+    { name: "Tư vấn Hưu trí", href: "/dich-vu/bhxh-tu-nguyen" },
     { name: "BHYT tự nguyện", href: "/dich-vu/bhyt-tu-nguyen" },
     { name: "BHXH tự nguyện", href: "/dich-vu/bhxh-tu-nguyen" },
 ];
@@ -22,22 +37,12 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Brand Column */}
                     <div className="space-y-6">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="w-10 h-10 rounded-xl bg-[var(--primary)] flex items-center justify-center">
-                                <svg
-                                    className="w-6 h-6 text-white"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                                    />
-                                </svg>
-                            </div>
+                        <Link href="/" className="flex items-center gap-3">
+                            <img
+                                src="/logo_dichvubhxh.png"
+                                alt="DichVuBHXH.vn Logo"
+                                className="h-10 w-auto object-contain bg-white rounded-lg p-1"
+                            />
                             <span className="text-xl font-bold">DichVuBHXH.vn</span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed">
@@ -91,9 +96,16 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                                        target={link.external ? "_blank" : undefined}
+                                        rel={link.external ? "noopener noreferrer" : undefined}
+                                        className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1"
                                     >
                                         {link.name}
+                                        {link.external && (
+                                            <svg className="w-3 h-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        )}
                                     </Link>
                                 </li>
                             ))}
@@ -171,7 +183,14 @@ export default function Footer() {
                                 </svg>
                                 <div>
                                     <p className="text-sm text-gray-400">Địa điểm</p>
-                                    <p className="text-white">TP.HCM, Việt Nam</p>
+                                    <a
+                                        href="https://maps.app.goo.gl/mZvuu4wi9fwA7mh88"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-white hover:text-[var(--primary)] transition-colors"
+                                    >
+                                        TP.HCM, Việt Nam
+                                    </a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
@@ -189,7 +208,7 @@ export default function Footer() {
                                     />
                                 </svg>
                                 <div>
-                                    <p className="text-sm text-gray-400">Website</p>
+                                    <p className="text-sm text-gray-400">Website liên kết</p>
                                     <a
                                         href="https://congdichvubhxh.vn"
                                         target="_blank"
@@ -197,6 +216,14 @@ export default function Footer() {
                                         className="text-white hover:text-[var(--primary)] transition-colors"
                                     >
                                         congdichvubhxh.vn
+                                    </a> <br />
+                                    <a
+                                        href="https://muabhyt.vn"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-white hover:text-[var(--primary)] transition-colors"
+                                    >
+                                        muabhyt.vn
                                     </a>
                                 </div>
                             </li>

@@ -51,6 +51,45 @@ export const organizationSchema = {
     },
 };
 
+export const organizationSchemaEn = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "DichVuBHXH.vn",
+    description:
+        "Specializing in Social Insurance consulting: One-time withdrawal, Book merging, Voluntary Health Insurance. 15+ years of experience.",
+    url: "https://dichvubhxh.vn/en",
+    telephone: "+84973358077",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Ho Chi Minh City",
+        addressCountry: "VN",
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: "10.8231",
+        longitude: "106.6297",
+    },
+    priceRange: "$$",
+    openingHours: "Mo-Su 08:00-20:00",
+    sameAs: [
+        "https://www.facebook.com/congdichvubhxh.vn/",
+        "https://www.tiktok.com/@congdichvubhxhvn",
+        "https://congdichvubhxh.vn",
+        "https://muabhyt.vn",
+    ],
+    areaServed: [
+        {
+            "@type": "Country",
+            name: "Vietnam",
+        },
+    ],
+    founder: {
+        "@type": "Organization",
+        name: "Tam Giang Co., Ltd",
+        url: "https://tamgiangcapital.com",
+    },
+};
+
 // Schema cho Service - Rút BHXH 1 lần
 export const rutBHXHServiceSchema = {
     "@context": "https://schema.org",
