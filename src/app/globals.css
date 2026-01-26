@@ -146,20 +146,15 @@ body {
 /* CLS Prevention - Fixed heights for common elements */
 nav {
   min-height: 64px;
-  contain: layout style;
-  position: relative;
-  z-index: 50;
+  contain: style; /* Removed 'layout' to not interfere with fixed positioning */
 }
 
 main {
-  position: relative;
-  z-index: 10;
+  /* z-index handled by Tailwind */
 }
 
 footer {
   contain: layout style;
-  position: relative;
-  z-index: 50;
 }
 
 /* Skeleton loading animation */

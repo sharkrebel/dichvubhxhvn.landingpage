@@ -113,7 +113,7 @@ export default function EnLayout({
                 </Script>
 
                 <NavbarEn />
-                <main className="flex-1">{children}</main>
+                <main className="flex-1 pt-16">{children}</main>
                 <FooterEn />
 
             </body>

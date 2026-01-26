@@ -135,7 +135,7 @@ export default function TechBackground() {
             aria-hidden="true"
             className="fixed inset-0 pointer-events-none"
             style={{
-                zIndex: 0, // Changed from -1 to 0
+                zIndex: -1, // Fixed: ensure background is below all content
                 opacity: 0.8
             }}
         />

@@ -30,7 +30,7 @@ export default function Navbar() {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     return (
-        <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-[var(--border)] bg-white/95 dark:bg-[#101922]/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all">
+        <nav className="fixed top-0 left-0 right-0 z-[9999] w-full border-b border-slate-200 dark:border-[var(--border)] bg-white/95 dark:bg-[#101922]/80 backdrop-blur-md shadow-sm dark:shadow-none transition-all">
             <div className="max-w-7xl mx-auto px-4 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -62,8 +62,8 @@ export default function Navbar() {
                                 <Link
                                     href={item.href}
                                     className={`px-4 py-2 text-sm font-bold transition-colors rounded-lg flex items-center gap-1 ${pathname === item.href || (item.submenu && item.submenu.some(sub => sub.href === pathname))
-                                            ? "text-[var(--primary)] bg-[var(--primary)]/10"
-                                            : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
+                                        ? "text-[var(--primary)] bg-[var(--primary)]/10"
+                                        : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
                                         }`}
                                 >
                                     {item.name}
@@ -92,8 +92,8 @@ export default function Navbar() {
                                                 key={subItem.name}
                                                 href={subItem.href}
                                                 className={`block px-4 py-2.5 text-sm transition-colors ${pathname === subItem.href
-                                                        ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
-                                                        : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                                    ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
+                                                    : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
                                                     }`}
                                             >
                                                 {subItem.name}
