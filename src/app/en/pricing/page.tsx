@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/pricing",
     title: "Service Pricing - Transparent & Reasonable",
-    description:
-        "Transparent Social Insurance service pricing. Consultation from 1 million VND, Full Service from 12 million VND. 100% Refund commitment.",
-};
+    description: "Transparent Social Insurance service pricing. Consultation from 1 million VND, Full Service from 12 million VND.",
+});
 
 const pricingPlans = [
     {

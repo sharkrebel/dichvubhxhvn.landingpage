@@ -1,15 +1,21 @@
+import Link from "next/link";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import JsonLd, { faqSchemaBHYT } from "@/components/JsonLd";
+import AuthorBio from "@/components/AuthorBio";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/dich-vu/bhyt-tu-nguyen",
     title: "Đăng ký BHYT tự nguyện - Đơn giản, Chi phí thấp",
-    description:
-        "Đăng ký BHYT hộ gia đình đơn giản nhất, chi phí thấp nhất. Kênh hỗ trợ BHYT dễ tiếp cận nhất.",
-};
+    description: "Đăng ký BHYT hộ gia đình đơn giản nhất, chi phí thấp nhất. Kênh hỗ trợ BHYT dễ tiếp cận nhất.",
+    image: "/og-bhyt.png",
+});
 
 export default function BHYTTuNguyenPage() {
     return (
         <>
+            <JsonLd data={faqSchemaBHYT} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-pink-500 to-rose-600 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -24,7 +30,7 @@ export default function BHYTTuNguyenPage() {
                             Đăng ký đơn giản nhất, chi phí thấp nhất, kênh hỗ trợ về BHYT tiếp
                             cận dễ dàng nhất.
                         </p>
-                        <CTAButton size="lg" className="bg-white text-rose-600">
+                        <CTAButton size="lg" className="bg-white text-rose-600 shadow-lg" href="https://muabhyt.vn">
                             Đăng ký ngay
                         </CTAButton>
                     </div>
@@ -69,6 +75,42 @@ export default function BHYTTuNguyenPage() {
                 </div>
             </section>
 
+            <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <h2 className="text-3xl font-black tracking-tight mb-4">
+                            Khu vực tư vấn BHYT tại chỗ
+                        </h2>
+                        <p className="text-[var(--text-secondary)]">
+                            Chúng tôi hỗ trợ tư vấn và hướng dẫn đăng ký BHYT hộ gia đình tại các quận huyện và tỉnh thành lớn.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        {[
+                            { name: "TP. Hồ Chí Minh", slug: "tp-ho-chi-minh" },
+                            { name: "Hà Nội", slug: "ha-noi" },
+                            { name: "Đà Nẵng", slug: "da-nang" },
+                            { name: "Bình Dương", slug: "binh-duong" },
+                            { name: "Đồng Nai", slug: "dong-nai" },
+                            { name: "Quận 1", slug: "quan-1" },
+                            { name: "TP. Thủ Đức", slug: "tp-thu-duc" },
+                            { name: "Quận 7", slug: "quan-7" },
+                            { name: "Hà Đông", slug: "ha-dong" },
+                            { name: "Cầu Giấy", slug: "cau-giay" }
+                        ].map((loc) => (
+                            <Link
+                                key={loc.slug}
+                                href={`/dich-vu/bhyt-tu-nguyen/${loc.slug}`}
+                                className="p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 text-center hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all font-medium text-sm"
+                            >
+                                {loc.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* CTA */}
             <section className="py-20 bg-white dark:bg-[#0d141b]">
                 <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
@@ -79,7 +121,7 @@ export default function BHYTTuNguyenPage() {
                         Liên hệ để được tư vấn mức đóng và quyền lợi phù hợp với gia đình bạn.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <CTAButton size="lg">Tư vấn đăng ký BHYT</CTAButton>
+                        <CTAButton size="lg">Đăng ký mua BHYT</CTAButton>
                         <a
                             href="https://muabhyt.vn"
                             target="_blank"
@@ -92,6 +134,12 @@ export default function BHYTTuNguyenPage() {
                             </svg>
                         </a>
                     </div>
+                </div>
+            </section>
+
+            <section className="py-12 bg-[var(--background)]">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <AuthorBio />
                 </div>
             </section>
         </>

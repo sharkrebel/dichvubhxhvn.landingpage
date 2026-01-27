@@ -86,36 +86,84 @@ export default function Navbar() {
 
                                 {/* Dropdown */}
                                 {item.submenu && activeDropdown === item.name && (
-                                    <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-[var(--border)] py-2 z-50 animate-enter origin-top-left">
-                                        {item.submenu.map((subItem) => (
-                                            <Link
-                                                key={subItem.name}
-                                                href={subItem.href}
-                                                className={`block px-4 py-2.5 text-sm transition-colors ${pathname === subItem.href
-                                                    ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
-                                                    : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                                                    }`}
-                                            >
-                                                {subItem.name}
-                                            </Link>
-                                        ))}
+                                    <div className="absolute top-full left-0 pt-2 w-56 z-50 animate-enter origin-top-left">
+                                        <div className="bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-[var(--border)] py-2">
+                                            {item.submenu.map((subItem) => (
+                                                <Link
+                                                    key={subItem.name}
+                                                    href={subItem.href}
+                                                    className={`block px-4 py-2.5 text-sm transition-colors ${pathname === subItem.href
+                                                        ? "text-[var(--primary)] bg-[var(--primary)]/5 font-bold"
+                                                        : "text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                                        }`}
+                                                >
+                                                    {subItem.name}
+                                                </Link>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
                         ))}
 
-                        {/* External Link - Online Tools */}
-                        <a
-                            href="https://muabhyt.vn/tinh-bhxh-1-lan"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 text-sm font-bold text-[#0f172a] dark:text-white hover:text-[var(--primary)] transition-colors rounded-lg hover:bg-[var(--primary)]/5 flex items-center gap-1"
+                        {/* Updated External Link - Online Tools Dropdown */}
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setActiveDropdown("online-tools")}
+                            onMouseLeave={() => setActiveDropdown(null)}
                         >
-                            Online Tools
-                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
+                            <button
+                                className={`px-4 py-2 text-sm font-bold transition-colors rounded-lg flex items-center gap-1 ${activeDropdown === "online-tools"
+                                    ? "text-[var(--primary)] bg-[var(--primary)]/10"
+                                    : "text-[#0f172a] dark:text-white hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
+                                    }`}
+                            >
+                                Online Tools
+                                <svg
+                                    className="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={1.5}
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </button>
+
+                            {/* Dropdown */}
+                            {activeDropdown === "online-tools" && (
+                                <div className="absolute top-full left-0 pt-2 w-72 z-50 animate-enter origin-top-left">
+                                    <div className="bg-white dark:bg-[#1e293b] rounded-xl shadow-xl border border-[var(--border)] py-2">
+                                        <a
+                                            href="https://muabhyt.vn/tinh-bhxh-1-lan"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center justify-between px-4 py-2.5 text-sm text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors"
+                                        >
+                                            <span>Calculate 1-time Social Insurance</span>
+                                            <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                        <a
+                                            href="https://muabhyt.vn/du-kien-luong-huu"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center justify-between px-4 py-2.5 text-sm text-[var(--foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors"
+                                        >
+                                            <span>Expected Pension Calculation</span>
+                                            <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className="hidden lg:flex items-center gap-3">
@@ -194,28 +242,56 @@ export default function Navbar() {
                             </div>
                         ))}
 
-                        {/* External Link Mobile */}
-                        <a
-                            href="https://muabhyt.vn/tinh-bhxh-1-lan"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-3 text-base font-medium text-[var(--foreground)] hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
-                        >
-                            Công cụ online
-                            <svg
-                                className="w-4 h-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
+                        {/* Updated External Link Mobile */}
+                        <div className="space-y-1">
+                            <div className="px-4 py-2 text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                                Online Tools
+                            </div>
+                            <a
+                                href="https://muabhyt.vn/tinh-bhxh-1-lan"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setIsOpen(false)}
+                                className="flex items-center justify-between px-4 py-3 text-base font-medium text-[#0f172a] dark:text-white hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={1.5}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                />
-                            </svg>
-                        </a>
+                                <span>Calculate 1-time Social Insurance</span>
+                                <svg
+                                    className="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={1.5}
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                href="https://muabhyt.vn/du-kien-luong-huu"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setIsOpen(false)}
+                                className="flex items-center justify-between px-4 py-3 text-base font-medium text-[#0f172a] dark:text-white hover:bg-[var(--primary)]/10 rounded-lg transition-colors"
+                            >
+                                <span>Expected Pension Calculation</span>
+                                <svg
+                                    className="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={1.5}
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
 
                         {/* CTA Mobile */}
                         <div className="pt-4">

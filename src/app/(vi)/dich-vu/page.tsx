@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/dich-vu",
     title: "Dịch vụ BHXH - Tư vấn & Hỗ trợ Thủ tục Trọn Gói",
-    description:
-        "Dịch vụ rút BHXH 1 lần, gộp sổ, hoàn thiện hồ sơ, BHYT/BHXH tự nguyện. 15+ năm kinh nghiệm, xử lý mọi ca từ đơn giản đến phức tạp.",
-};
+    description: "Dịch vụ rút BHXH 1 lần, gộp sổ, hoàn thiện hồ sơ, BHYT/BHXH tự nguyện. 15+ năm kinh nghiệm, xử lý mọi ca từ đơn giản đến phức tạp.",
+});
 
 const services = [
     {

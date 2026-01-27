@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/bieu-phi",
     title: "Biểu phí dịch vụ BHXH - Minh bạch & Hợp lý",
-    description:
-        "Bảng giá dịch vụ tư vấn BHXH minh bạch. Tư vấn từ 1 triệu, ủy quyền từ 12 triệu. Cam kết hoàn phí 100% nếu không thực hiện được.",
-};
+    description: "Bảng giá dịch vụ tư vấn BHXH minh bạch. Tư vấn từ 1 triệu, ủy quyền từ 12 triệu. Cam kết hoàn phí 100%.",
+});
 
 const pricingPlans = [
     {
@@ -40,12 +41,12 @@ const pricingPlans = [
 
 const additionalInfo = [
     {
-        title: "Trả phí trước",
+        title: "Ủy quyền - Phí trả trước",
         description:
             "Ủy quyền công việc (không ủy quyền nhận tiền) → Tiền BHXH về trực tiếp tài khoản chính chủ của bạn.",
     },
     {
-        title: "Trả phí sau",
+        title: "Ủy quyền - Phí trả sau",
         description:
             "Ủy quyền nhận tiền thay → Chúng tôi cấn trừ chi phí và chuyển trả bạn phần còn lại.",
     },

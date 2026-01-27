@@ -23,61 +23,14 @@ export const viewport: Viewport = {
     ],
 };
 
-export const metadata: Metadata = {
-    title: {
-        default: "DichVuBHXH.vn - Social Insurance Service Agency",
-        template: "%s | DichVuBHXH.vn",
-    },
-    description:
-        "Handling One-time Social Insurance withdrawal, Book merging, Voluntary Health Insurance. 15+ years experience, 2025 Law compliant, Nationwide support.",
-    keywords: [
-        "social insurance withdrawal",
-        "vietnam social insurance",
-        "combine social insurance books",
-        "voluntary health insurance",
-        "social insurance consulting",
-    ],
-    authors: [{ name: "Tam Giang Co., Ltd", url: "https://tamgiangcapital.com" }],
-    creator: "DichVuBHXH.vn",
-    metadataBase: new URL("https://dichvubhxh.vn"),
-    alternates: {
-        canonical: "/en",
-        languages: {
-            "en": "/en",
-            "vi": "/",
-        }
-    },
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: "https://dichvubhxh.vn/en",
-        siteName: "DichVuBHXH.vn",
-        title: "DichVuBHXH.vn - Full-service Social Insurance Consulting",
-        description:
-            "Handling One-time Social Insurance withdrawal, Book merging, Voluntary Health Insurance. 15+ years experience.",
-        images: [
-            {
-                url: "https://dichvubhxh.vn/og-image-static.png",
-                width: 1200,
-                height: 630,
-                alt: "DichVuBHXH.vn Open Graph Image",
-            },
-        ],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-};
-
 import TechBackground from "@/components/TechBackground";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = constructMetadata({
+    path: "/en",
+    title: "Social Insurance Service Agency",
+    description: "Handling One-time Social Insurance withdrawal, Book merging, Voluntary Health Insurance. 15+ years experience, 2025 Law compliant, Nationwide support.",
+});
 
 export default function EnLayout({
     children,

@@ -1,15 +1,18 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import JsonLd, { faqSchemaBHYTEn } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services/voluntary-health-insurance",
     title: "Voluntary Health Insurance - Simple, Low Cost",
-    description:
-        "Simplest household Health Insurance registration, lowest cost. Easiest access support channel for Health Insurance.",
-};
+    description: "Simplest household Health Insurance registration, lowest cost. Easiest access support channel.",
+});
 
 export default function VoluntaryHealthInsurancePageEn() {
     return (
         <>
+            <JsonLd data={faqSchemaBHYTEn} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-pink-500 to-rose-600 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -23,7 +26,7 @@ export default function VoluntaryHealthInsurancePageEn() {
                         <p className="text-lg lg:text-xl text-white/80 mb-8">
                             Simplest registration, lowest cost, easiest access support channel for Health Insurance.
                         </p>
-                        <CTAButton size="lg" className="bg-white text-rose-600 hover:bg-white/90">
+                        <CTAButton size="lg" className="bg-white text-rose-600 hover:bg-white/90" href="https://muabhyt.vn">
                             Register Now
                         </CTAButton>
                     </div>

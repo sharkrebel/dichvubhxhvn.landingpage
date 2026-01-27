@@ -1,18 +1,14 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import JsonLd, { faqSchemaBHXHEn } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services/one-time-withdrawal",
     title: "One-time Social Insurance Withdrawal Service - Fast & Legal 2025",
-    description:
-        "Specializing in one-time social insurance withdrawal, book merging, book loss. Consulting on correct 2025 SI laws, legal authorization procedures, minimizing travel.",
-    keywords: [
-        "one-time social insurance withdrawal",
-        "social insurance service",
-        "withdraw insurance money",
-        "SI procedures 2025",
-    ],
-};
+    description: "Specializing in one-time social insurance withdrawal, book merging, book loss. Consulting on correct 2025 SI laws, legal authorization procedures.",
+});
 
 const breadcrumbItems = [
     { name: "Home", path: "/en" },
@@ -51,6 +47,7 @@ export default function OneTimeWithdrawalPageEn() {
     return (
         <>
             <BreadcrumbJsonLd items={breadcrumbItems} />
+            <JsonLd data={faqSchemaBHXHEn} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-[var(--primary)] to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">

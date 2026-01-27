@@ -17,7 +17,7 @@ export default function ServiceRotator() {
     const [status, setStatus] = useState<"entering" | "visible" | "exiting">("entering");
 
     useEffect(() => {
-        // Start entering
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setStatus("entering");
 
         // Enter -> Visible (after 0.5s)

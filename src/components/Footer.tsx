@@ -6,6 +6,7 @@ const quickLinks = [
     { name: "Quy trình", href: "/quy-trinh" },
     { name: "Biểu phí", href: "/bieu-phi" },
     { name: "Kinh nghiệm", href: "/kinh-nghiem" },
+    { name: "Blog - Chia sẻ", href: "/blog" },
     {
         name: "Tính BHXH 1 lần 2026",
         href: "https://muabhyt.vn/tinh-bhxh-1-lan",

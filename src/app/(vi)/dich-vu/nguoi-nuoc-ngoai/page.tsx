@@ -1,15 +1,21 @@
+import Link from "next/link";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import JsonLd, { faqSchemaBHXH } from "@/components/JsonLd";
+import AuthorBio from "@/components/AuthorBio";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/dich-vu/nguoi-nuoc-ngoai",
     title: "Rút BHXH 1 lần cho Người nước ngoài - Dịch vụ Chuyên biệt",
-    description:
-        "Dịch vụ rút BHXH 1 lần dành cho lao động nước ngoài làm việc tại Việt Nam. Hỗ trợ đa ngôn ngữ, dịch thuật công chứng, xử lý nhanh.",
-};
+    description: "Dịch vụ rút BHXH 1 lần dành cho lao động nước ngoài làm việc tại Việt Nam. Hỗ trợ đa ngôn ngữ, dịch thuật công chứng.",
+    image: "/og-bhxh.png",
+});
 
 export default function NguoiNuocNgoaiPage() {
     return (
         <>
+            <JsonLd data={faqSchemaBHXH} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-[var(--primary)] to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -27,7 +33,7 @@ export default function NguoiNuocNgoaiPage() {
                             Hỗ trợ lao động nước ngoài rút tiền BHXH trước khi về nước. Đội ngũ
                             thông thạo ngoại ngữ, xử lý nhanh chóng.
                         </p>
-                        <CTAButton size="lg" className="bg-white text-[var(--primary)]">
+                        <CTAButton size="lg" className="bg-white text-[var(--primary)] shadow-lg">
                             Contact Us / Liên hệ ngay
                         </CTAButton>
                     </div>
@@ -101,6 +107,42 @@ export default function NguoiNuocNgoaiPage() {
                 </div>
             </section>
 
+            <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <h2 className="text-3xl font-black tracking-tight mb-4">
+                            Service Locations / Khu vực hỗ trợ
+                        </h2>
+                        <p className="text-[var(--text-secondary)]">
+                            Our team provides specialized support for expats at all major Social Insurance offices in TP.HCM and Hanoi.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        {[
+                            { name: "TP. Hồ Chí Minh", slug: "tp-ho-chi-minh" },
+                            { name: "Hà Nội", slug: "ha-noi" },
+                            { name: "Da Nang", slug: "da-nang" },
+                            { name: "Bình Dương", slug: "binh-duong" },
+                            { name: "Dong Nai", slug: "dong-nai" },
+                            { name: "District 1", slug: "quan-1" },
+                            { name: "TP. Thủ Đức", slug: "tp-thu-duc" },
+                            { name: "District 7 (PMH)", slug: "quan-7" },
+                            { name: "Hoan Kiem", slug: "hoan-kiem" },
+                            { name: "Hà Đông", slug: "ha-dong" }
+                        ].map((loc) => (
+                            <Link
+                                key={loc.slug}
+                                href={`/dich-vu/nguoi-nuoc-ngoai/${loc.slug}`}
+                                className="p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 text-center hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all font-medium text-sm"
+                            >
+                                {loc.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* CTA */}
             <section className="py-20 bg-[var(--background)]">
                 <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
@@ -111,7 +153,13 @@ export default function NguoiNuocNgoaiPage() {
                         Contact us today for a free consultation. We&apos;ll guide you through
                         the entire process.
                     </p>
-                    <CTAButton size="lg">Contact Us / Liên hệ ngay</CTAButton>
+                    <CTAButton size="lg">Tư vấn cho người nước ngoài</CTAButton>
+                </div>
+            </section>
+
+            <section className="py-12 bg-[var(--background)]">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <AuthorBio />
                 </div>
             </section>
         </>

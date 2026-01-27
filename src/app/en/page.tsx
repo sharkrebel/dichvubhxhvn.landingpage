@@ -1,10 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import RunningExperienceEn from "@/components/RunningExperience";
 import ServiceRotator from "@/components/ServiceRotator";
 import IntroVideoEn from "@/components/IntroVideoEn";
+import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = constructMetadata({
+  path: "/en",
+});
 
 const services = [
   {
@@ -15,7 +19,7 @@ const services = [
     ),
     title: "One-time Withdrawal",
     description: "Support for one-time Social Insurance withdrawal for workers, compliant with 2025 laws.",
-    href: "/en",
+    href: "/en/services/one-time-withdrawal",
   },
   {
     icon: (
@@ -25,7 +29,7 @@ const services = [
     ),
     title: "Foreigner Service",
     description: "Social Insurance withdrawal service for foreign workers in Vietnam.",
-    href: "/en",
+    href: "/en/services/foreigner",
   },
   {
     icon: (
@@ -35,7 +39,7 @@ const services = [
     ),
     title: "Profile Completion",
     description: "Book merging, closing, info correction, handling debt issues.",
-    href: "/en",
+    href: "/en/services/profile-completion",
   },
   {
     icon: (
@@ -45,7 +49,7 @@ const services = [
     ),
     title: "Voluntary Health Ins",
     description: "Simple registration, low cost, easy access assistance.",
-    href: "/en",
+    href: "/en/services/voluntary-health-insurance",
   },
   {
     icon: (
@@ -55,7 +59,7 @@ const services = [
     ),
     title: "Voluntary Social Ins",
     description: "Monthly or catch-up payment for retirement and survivorship benefits.",
-    href: "/en",
+    href: "/en/services/voluntary-social-insurance",
   },
   {
     icon: (
@@ -104,9 +108,8 @@ export default function HomePageEn() {
           {/* Hero Grip: items-stretch to equal height */}
           <div className="grid lg:grid-cols-2 gap-12 items-stretch mt-4 md:mt-8 relative z-10">
             <div className="space-y-8 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--primary)]/10 text-[var(--primary)] rounded-full text-sm font-bold border border-[var(--primary)]/20 shadow-[0_0_15px_rgba(43,140,238,0.3)] animate-[pulse_3s_ease-in-out_infinite] w-fit">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--primary)]/10 text-[var(--primary)] rounded-full text-sm font-bold border border-[var(--primary)]/20 shadow-[0_0_15px_rgba(43,140,238,0.3)] w-fit hover:bg-[var(--primary)]/20 transition-colors">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
                 15+ years of Social Insurance experience
@@ -123,7 +126,7 @@ export default function HomePageEn() {
                 <CTAButton size="lg">
                   Free Consultation
                 </CTAButton>
-                <CTAButton variant="secondary" size="lg" href="/en" external={false}>
+                <CTAButton variant="secondary" size="lg" href="/en/services" external={false}>
                   View Services
                 </CTAButton>
               </div>
@@ -218,7 +221,7 @@ export default function HomePageEn() {
                 Real cases we have successfully supported
               </p>
             </div>
-            <CTAButton href="/en" variant="outline">
+            <CTAButton href="/en/experience" variant="outline">
               View All Experience
             </CTAButton>
           </div>

@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/quy-trinh",
     title: "Quy trình làm việc - Minh bạch & Nhanh chóng",
-    description:
-        "Quy trình xử lý hồ sơ BHXH minh bạch, nhanh chóng. Chỉ cần cung cấp hồ sơ, chúng tôi sẽ xử lý toàn bộ.",
-};
+    description: "Quy trình xử lý hồ sơ BHXH minh bạch, nhanh chóng. Chỉ cần cung cấp hồ sơ, chúng tôi sẽ xử lý toàn bộ.",
+});
 
 const documents = [
     {
@@ -147,7 +148,7 @@ export default function QuyTrinhPage() {
                         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[var(--border)] hidden md:block"></div>
 
                         <div className="space-y-8">
-                            {steps.map((step, index) => (
+                            {steps.map((step) => (
                                 <div key={step.number} className="relative flex gap-6">
                                     {/* Number circle */}
                                     <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-[var(--primary)] text-white flex items-center justify-center font-black text-xl">

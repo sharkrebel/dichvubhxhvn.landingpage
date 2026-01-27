@@ -23,62 +23,10 @@ export const viewport: Viewport = {
     ],
 };
 
-export const metadata: Metadata = {
-    title: {
-        default: "DichVuBHXH.vn - Dịch vụ Tư vấn BHXH Trọn Gói",
-        template: "%s | DichVuBHXH.vn",
-    },
-    description:
-        "Chuyên xử lý hồ sơ rút BHXH 1 lần, gộp sổ, BHYT tự nguyện. 15+ năm kinh nghiệm, tư vấn đúng luật mới nhất 2025, hỗ trợ toàn quốc. Hotline: 0973358077",
-    keywords: [
-        "rút bhxh 1 lần",
-        "dịch vụ bhxh",
-        "gộp sổ bhxh",
-        "bhyt tự nguyện",
-        "tư vấn bhxh",
-        "rút bảo hiểm xã hội",
-    ],
-    authors: [{ name: "Tam Giang Co., Ltd", url: "https://tamgiangcapital.com" }],
-    creator: "DichVuBHXH.vn",
-    metadataBase: new URL("https://dichvubhxh.vn"),
-    alternates: {
-        canonical: "/",
-        languages: {
-            "en": "/en",
-            "vi": "/",
-        }
-    },
-    openGraph: {
-        type: "website",
-        locale: "vi_VN",
-        url: "https://dichvubhxh.vn",
-        siteName: "DichVuBHXH.vn",
-        title: "Dịch vụ BHXH Online Trọn Gói - Uy Tín & Chuyên Nghiệp",
-        description:
-            "Chuyên xử lý hồ sơ rút BHXH 1 lần, gộp sổ, BHYT tự nguyện. 15+ năm kinh nghiệm, tư vấn đúng luật mới nhất 2025.",
-        images: [
-            {
-                url: "https://dichvubhxh.vn/og-image-static.png",
-                width: 1200,
-                height: 630,
-                alt: "DichVuBHXH.vn Open Graph Image",
-            },
-        ],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-};
-
 import TechBackground from "@/components/TechBackground";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = constructMetadata();
 
 export default function ViLayout({
     children,

@@ -1,12 +1,13 @@
-import Link from "next/link";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-    title: "Our Services - Full-service Social Insurance Consulting",
-    description:
-        "One-time Social Insurance withdrawal, book merging, profile completion, Voluntary Health/Social Insurance. 15+ years experience, handling all cases from simple to complex.",
-};
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services",
+    title: "Our Services - Full-service Social Insurance Store",
+    description: "One-time Social Insurance withdrawal, book merging, profile completion, Voluntary Health/Social Insurance. 15+ years experience.",
+});
 
 const services = [
     {

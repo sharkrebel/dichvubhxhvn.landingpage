@@ -1,15 +1,18 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import JsonLd, { faqSchemaBHXHEn } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services/voluntary-social-insurance",
     title: "Voluntary Social Insurance - Flexible Payment, Retirement Savings",
-    description:
-        "Simple voluntary Social Insurance registration, monthly payment or catch-up payment for retirement and survivorship benefits. Reasonable cost.",
-};
+    description: "Simple voluntary Social Insurance registration, monthly payment or catch-up payment for retirement and survivorship benefits.",
+});
 
 export default function VoluntarySocialInsurancePageEn() {
     return (
         <>
+            <JsonLd data={faqSchemaBHXHEn} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-[var(--primary)] to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -24,8 +27,8 @@ export default function VoluntarySocialInsurancePageEn() {
                             Simplest registration, lowest cost. Monthly payment or catch-up payment
                             for retirement and survivorship benefits.
                         </p>
-                        <CTAButton size="lg" className="bg-white text-[var(--primary)] hover:bg-white/90">
-                            Registration Consultation
+                        <CTAButton size="lg" className="bg-white text-[var(--primary)] hover:bg-white/90" href="https://muabhyt.vn">
+                            Register Now
                         </CTAButton>
                     </div>
                 </div>

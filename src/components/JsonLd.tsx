@@ -126,8 +126,8 @@ export const rutBHXHServiceSchema = {
     ],
 };
 
-// Schema cho FAQ
-export const faqSchema = {
+// Schema cho FAQ - Rút BHXH
+export const faqSchemaBHXH = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
@@ -144,16 +144,173 @@ export const faqSchema = {
             name: "Phí dịch vụ rút BHXH 1 lần là bao nhiêu?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Tư vấn hướng dẫn từ 1 triệu đồng (bạn tự nộp hồ sơ). Ủy quyền trọn gói từ 12 triệu đồng (chúng tôi xử lý toàn bộ). Cam kết hoàn phí 100% nếu không thực hiện được.",
+                text: "Tư vấn hướng dẫn từ 1 triệu đồng. Ủy quyền trọn gói từ 12 triệu đồng. Cam kết hoàn phí 100% nếu không thực hiện được.",
             },
         },
         {
             "@type": "Question",
-            name: "Người nước ngoài có thể rút BHXH tại Việt Nam không?",
+            name: "Hồ sơ rút BHXH 1 lần gồm những gì?",
             acceptedAnswer: {
                 "@type": "Answer",
-                text: "Có. Lao động nước ngoài làm việc tại Việt Nam khi kết thúc hợp đồng hoặc hết hạn giấy phép lao động có thể rút BHXH 1 lần. Chúng tôi hỗ trợ đa ngôn ngữ và dịch thuật công chứng.",
+                text: "Gồm: Sổ bảo hiểm xã hội (bản chính), Căn cước công dân (bản sao), và Đơn đề nghị (Mẫu số 14-HSB).",
             },
         },
     ],
 };
+
+// Schema cho FAQ - BHYT
+export const faqSchemaBHYT = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "Mua BHYT tự nguyện ở đâu?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Bạn có thể mua tại các đại lý thu BHXH, BHYT, UBND xã/phường nơi cư trú hoặc đăng ký online tại muabhyt.vn.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "Sau bao lâu thì thẻ BHYT có giá trị?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Thẻ BHYT có giá trị sử dụng sau 30 ngày kể từ ngày đóng tiền đối với người tham gia lần đầu hoặc tham gia lại sau 3 tháng gián đoạn.",
+            },
+        },
+    ],
+};
+
+// Schema cho FAQ - Foreigner (EN)
+export const faqSchemaForeignerEn = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "Can foreigners withdraw Social Insurance in Vietnam?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Foreign workers in Vietnam can withdraw Social Insurance in a one-time payment when their labor contract ends or work permit expires.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "What documents are required for foreign worker SI withdrawal?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Required documents include the Social Insurance book, Passport/National ID, and the application form. We assist with translation and notarization.",
+            },
+        },
+    ],
+};
+
+// Schema cho FAQ - One-time Withdrawal (EN)
+export const faqSchemaBHXHEn = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "What are the conditions for one-time SI withdrawal in 2025?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Under the 2024 SI Law (effective 1/7/2025): Those who participated BEFORE 1/7/2025 can still withdraw after 12 months of stopping work. Those who join AFTER 1/7/2025 can only withdraw if settling abroad, suffering from critical illness, or reaching retirement age without enough contribution years.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "How much is the service fee for SI withdrawal?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Guidance service from 1 million VND. Full authorization service from 12 million VND. 100% refund guarantee if the task cannot be completed.",
+            },
+        },
+    ],
+};
+
+// Schema cho FAQ - BHYT (EN)
+export const faqSchemaBHYTEn = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "Where can I register for voluntary Health Insurance?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "You can register at Social Insurance collection agencies, local ward/commune offices, or online at muabhyt.vn.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "When does the Health Insurance card become valid?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "The card becomes valid 30 days after payment for first-time participants or those re-joining after a gap of more than 3 months.",
+            },
+        },
+    ],
+};
+
+// Common FAQ
+export const faqSchema = faqSchemaBHXH;
+
+// Blog Article Schema Generator
+export const getArticleSchema = (article: {
+    title: string;
+    description: string;
+    date: string;
+    authorName?: string;
+    image?: string;
+    url: string;
+}) => ({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.description,
+    author: {
+        "@type": "Person",
+        name: article.authorName || "Nguyễn Hải Đăng",
+        url: "https://dichvubhxh.vn",
+    },
+    datePublished: article.date,
+    image: article.image || "https://dichvubhxh.vn/og-image-static.png",
+    publisher: {
+        "@type": "Organization",
+        name: "DichVuBHXH.vn",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://dichvubhxh.vn/logo_dichvubhxh.png",
+        },
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": article.url,
+    },
+});
+
+// Local Service FAQ Generator
+export const getLocalFAQSchema = (serviceName: string, locationName: string) => ({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: `Dịch vụ ${serviceName} tại ${locationName} có hỗ trợ tận nơi không?`,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: `Có, chúng tôi hỗ trợ tư vấn và thu hồ sơ tận nơi tại ${locationName}. Khách hàng chỉ cần ký hồ sơ, chúng tôi sẽ xử lý mọi thủ tục còn lại với cơ quan BHXH địa phương.`,
+            },
+        },
+        {
+            "@type": "Question",
+            name: `Thời gian xử lý ${serviceName} tại khu vực ${locationName} mất bao lâu?`,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: `Thông thường thời gian xử lý mất từ 7-10 ngày làm việc sau khi hồ sơ được nộp vào cơ quan BHXH tại ${locationName}. Chúng tôi cam kết theo sát tiến độ để khách hàng nhận kết quả nhanh nhất.`,
+            },
+        },
+    ],
+});

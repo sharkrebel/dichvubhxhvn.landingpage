@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services/profile-completion",
     title: "Profile Completion - Merge Books, Close Book, Fix Info",
-    description:
-        "Social Insurance profile completion service: merge books, close books, correct information errors, handle company debt. 15+ years experience.",
-};
+    description: "Social Insurance profile completion service: merge books, close books, correct information errors, handle company debt.",
+});
 
 const services = [
     {

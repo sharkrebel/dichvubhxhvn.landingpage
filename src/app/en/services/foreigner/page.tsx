@@ -1,15 +1,18 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
+import JsonLd, { faqSchemaForeignerEn } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/services/foreigner",
     title: "One-time Social Insurance Withdrawal for Foreigners - Specialized Service",
-    description:
-        "One-time social insurance withdrawal service for foreign workers in Vietnam. Multi-language support, notarized translation, fast processing.",
-};
+    description: "One-time social insurance withdrawal service for foreign workers in Vietnam. Multi-language support, notarized translation.",
+});
 
 export default function ForeignerServicePageEn() {
     return (
         <>
+            <JsonLd data={faqSchemaForeignerEn} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-[var(--primary)] to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">

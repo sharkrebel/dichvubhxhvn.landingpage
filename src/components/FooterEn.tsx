@@ -2,10 +2,11 @@ import Link from "next/link";
 
 const quickLinks = [
     { name: "Home", href: "/en" },
-    { name: "Services", href: "/en" },
-    { name: "Process", href: "/en" },
-    { name: "Fees", href: "/en" },
-    { name: "Experience", href: "/en" },
+    { name: "Services", href: "/en/services" },
+    { name: "Process", href: "/en/process" },
+    { name: "Fees", href: "/en/pricing" },
+    { name: "Experience", href: "/en/experience" },
+    { name: "News", href: "/en/blog" },
     {
         name: "One-time SS Calc (2026)",
         href: "https://muabhyt.vn/tinh-bhxh-1-lan",
@@ -19,15 +20,15 @@ const quickLinks = [
 ];
 
 const services = [
-    { name: "One-time Withdrawal", href: "/en" },
-    { name: "Foreigner Profile", href: "/en" },
-    { name: "Merge/Close Books", href: "/en" },
-    { name: "Lost Book Reissue", href: "/en" },
-    { name: "Info Adjustment", href: "/en" },
-    { name: "Maternity Benefits", href: "/en" },
-    { name: "Retirement Consult", href: "/en" },
-    { name: "Voluntary Health Ins", href: "/en" },
-    { name: "Voluntary Social Ins", href: "/en" },
+    { name: "One-time Withdrawal", href: "/en/services/one-time-withdrawal" },
+    { name: "Foreigner Profile", href: "/en/services/foreigner" },
+    { name: "Merge/Close Books", href: "/en/services/profile-completion" },
+    { name: "Lost Book Reissue", href: "/en/services/profile-completion" },
+    { name: "Info Adjustment", href: "/en/services/profile-completion" },
+    { name: "Maternity Benefits", href: "/en/services" },
+    { name: "Retirement Consult", href: "/en/services" },
+    { name: "Voluntary Health Ins", href: "/en/services/voluntary-health-insurance" },
+    { name: "Voluntary Social Ins", href: "/en/services/voluntary-social-insurance" },
 ];
 
 export default function FooterEn() {

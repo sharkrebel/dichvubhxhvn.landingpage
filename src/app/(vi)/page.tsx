@@ -1,8 +1,15 @@
-import Link from "next/link";
-import CTAButton from "@/components/CTAButton";
 import RunningExperience from "@/components/RunningExperience";
 import ServiceRotator from "@/components/ServiceRotator";
 import IntroVideo from "@/components/IntroVideo";
+import Link from "next/link";
+import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
+import CTAButton from "@/components/CTAButton";
+
+export const metadata: Metadata = constructMetadata({
+  path: "/",
+  image: "/ogimgtgv.png",
+});
 
 const services = [
   {
@@ -81,8 +88,8 @@ const reasons = [
   },
   {
     number: "Miễn phí",
-    label: "Hỗ trợ",
-    description: "Tư vấn qua Zalo, điện thoại",
+    label: "Tư vấn",
+    description: "Hỗ trợ Tư vấn qua Zalo, điện thoại",
   },
   {
     number: "Toàn quốc",

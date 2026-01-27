@@ -80,7 +80,7 @@ const scenes = [
         content: (
             <div className="text-center text-slate-900 animate-in zoom-in duration-500">
                 <h3 className="text-2xl md:text-3xl font-black mb-2 text-[var(--primary)] uppercase tracking-wider">
-                    Don't Hesitate!
+                    Don&apos;t Hesitate!
                 </h3>
                 <h2 className="text-4xl md:text-6xl font-black mb-8 leading-none">
                     CONSULT NOW
@@ -128,6 +128,7 @@ export default function IntroVideo() {
 
     // Reset progress when scene changes
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setProgress(0);
     }, [currentScene]);
 

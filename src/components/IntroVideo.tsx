@@ -53,7 +53,7 @@ const scenes = [
                 <div className="flex justify-center -space-x-4 mb-8">
                     {[1, 2, 3, 4, 5].map(i => (
                         <div key={i} className="w-12 h-12 rounded-full border-2 border-[#0d141b] bg-slate-200 flex items-center justify-center text-xs text-slate-900 font-bold">
-                            User
+                            KH
                         </div>
                     ))}
                     <div className="w-12 h-12 rounded-full border-2 border-[#0d141b] bg-[var(--primary)] flex items-center justify-center text-xs font-bold">
@@ -127,8 +127,9 @@ export default function IntroVideo() {
         };
     }, []);
 
-    // Reset progress when scene changes
+    // Reset progress khi scene thay đổi
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setProgress(0);
     }, [currentScene]);
 

@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/en/process",
     title: "Working Process - Transparent & Fast",
-    description:
-        "Transparent and fast Social Insurance processing workflow. Just provide your documents, we handle everything else.",
-};
+    description: "Transparent and fast Social Insurance processing workflow. Just provide your documents, we handle everything else.",
+});
 
 const documents = [
     {

@@ -1,18 +1,17 @@
+import Link from "next/link";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 import CTAButton from "@/components/CTAButton";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import JsonLd, { faqSchemaBHXH } from "@/components/JsonLd";
+import AuthorBio from "@/components/AuthorBio";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
+    path: "/dich-vu/rut-bhxh-1-lan",
     title: "Dịch vụ Rút BHXH 1 Lần - Nhanh Chóng & Đúng Luật mới nhất 2025",
-    description:
-        "Chuyên xử lý hồ sơ rút bảo hiểm xã hội 1 lần, gộp sổ, mất sổ. Tư vấn đúng luật BHXH 2025, thủ tục ủy quyền hợp pháp, không cần đi lại nhiều lần.",
-    keywords: [
-        "rút bhxh 1 lần",
-        "dịch vụ bảo hiểm xã hội",
-        "rút tiền bảo hiểm",
-        "thủ tục bhxh 2025",
-    ],
-};
+    description: "Chuyên xử lý hồ sơ rút bảo hiểm xã hội 1 lần, gộp sổ, mất sổ. Tư vấn đúng luật BHXH 2025, thủ tục ủy quyền hợp pháp.",
+    image: "/og-bhxh.png",
+});
 
 const breadcrumbItems = [
     { name: "Trang chủ", path: "/" },
@@ -51,6 +50,7 @@ export default function RutBHXH1LanPage() {
     return (
         <>
             <BreadcrumbJsonLd items={breadcrumbItems} />
+            <JsonLd data={faqSchemaBHXH} />
             {/* Hero */}
             <section className="bg-gradient-to-br from-[var(--primary)] to-blue-700 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -451,6 +451,67 @@ export default function RutBHXH1LanPage() {
                     <p className="text-center text-sm text-[var(--text-secondary)] mt-8">
                         * Hoàn phí 100% nếu không thực hiện được công việc
                     </p>
+                </div>
+            </section>
+
+            <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="flex items-center justify-between mb-8">
+                        <h2 className="text-2xl font-black tracking-tight">Kiến thức hữu ích</h2>
+                        <Link href="/blog" className="text-sm font-bold text-[var(--primary)] hover:underline">Xem tất cả</Link>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <Link href="/blog/luat-bhxh-moi-2025" className="group p-6 bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 hover:shadow-lg transition-all">
+                            <h3 className="font-bold mb-2 group-hover:text-[var(--primary)]">Điểm mới Luật BHXH 2024 áp dụng từ 2025</h3>
+                            <p className="text-sm text-[var(--text-secondary)] line-clamp-2">Những thay đổi quan trọng về điều kiện rút BHXH 1 lần bạn cần biết trước khi nộp hồ sơ.</p>
+                        </Link>
+                        <Link href="/blog/huong-dan-rut-bhxh-1-lan-online" className="group p-6 bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 hover:shadow-lg transition-all">
+                            <h3 className="font-bold mb-2 group-hover:text-[var(--primary)]">Hướng dẫn rút BHXH 1 lần online qua VssID</h3>
+                            <p className="text-sm text-[var(--text-secondary)] line-clamp-2">Quy trình 3 bước nộp hồ sơ trực tuyến nhanh chóng, không cần đến cơ quan BHXH.</p>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <h2 className="text-3xl font-black tracking-tight mb-4">
+                            Khu vực hỗ trợ tư vấn trực tiếp
+                        </h2>
+                        <p className="text-[var(--text-secondary)]">
+                            Chúng tôi cung cấp dịch vụ rút BHXH 1 lần trọn gói tại các thành phố lớn và quận huyện trọng điểm, hỗ trợ tận nơi cho khách hàng.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        {[
+                            { name: "TP. Hồ Chí Minh", slug: "tp-ho-chi-minh" },
+                            { name: "Hà Nội", slug: "ha-noi" },
+                            { name: "Đà Nẵng", slug: "da-nang" },
+                            { name: "Bình Dương", slug: "binh-duong" },
+                            { name: "Đồng Nai", slug: "dong-nai" },
+                            { name: "Quận 1", slug: "quan-1" },
+                            { name: "TP. Thủ Đức", slug: "tp-thu-duc" },
+                            { name: "Quận 7", slug: "quan-7" },
+                            { name: "Cầu Giấy", slug: "cau-giay" },
+                            { name: "Hà Đông", slug: "ha-dong" }
+                        ].map((loc) => (
+                            <Link
+                                key={loc.slug}
+                                href={`/dich-vu/rut-bhxh-1-lan/${loc.slug}`}
+                                className="p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 text-center hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all font-medium text-sm"
+                            >
+                                {loc.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-12 bg-[var(--background)]">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <AuthorBio />
                 </div>
             </section>
 
