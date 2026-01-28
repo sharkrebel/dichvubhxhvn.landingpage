@@ -8,7 +8,6 @@ import CTAButton from "@/components/CTAButton";
 
 export const metadata: Metadata = constructMetadata({
   path: "/",
-  image: "/ogimgtgv.png",
 });
 
 const services = [
